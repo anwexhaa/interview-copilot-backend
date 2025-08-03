@@ -23,7 +23,9 @@ const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:3001',
   'https://interview-copilot-bice.vercel.app',
-  'https://interview-copilot-5cvjifvcd-anweshas-projects-24a008ff.vercel.app'
+  'https://interview-copilot-5cvjifvcd-anweshas-projects-24a008ff.vercel.app',
+  'https://interview-copilot-git-main-anweshas-projects-24a008ff.vercel.app',
+  'https://interview-copilot-cn21ivsu2-anweshas-projects-24a008ff.vercel.app'
 ];
 
 app.use(cors({
