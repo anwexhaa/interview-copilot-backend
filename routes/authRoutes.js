@@ -25,7 +25,7 @@ router.post('/signup', verifyFirebaseToken, async (req, res) => {
       data: {
         email,
         name: name || '', // fallback to empty string if name is missing
-        firebaseUid: uid,  // assuming you've updated schema field to `firebaseUid`
+        uid: uid,  // assuming you've updated schema field to `firebaseUid`
       },
     });
 
