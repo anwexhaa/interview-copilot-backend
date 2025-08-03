@@ -42,6 +42,17 @@ app.use(cors({
 
 
 app.use(express.json());
+app.options('*', cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin) || origin === 'null') {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
+
 
 // ✅ Mount routes
 app.use('/api/chat', chatRoutes);
