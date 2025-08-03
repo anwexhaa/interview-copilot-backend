@@ -11,7 +11,7 @@ const prisma = new PrismaClient();
 router.post("/", verifyFirebaseToken, createChat);
 
 // Route to generate AI reply using Gemini & save it
-router.post("/chat/ask", verifyFirebaseToken, async (req, res) => {
+router.post("/ask", verifyFirebaseToken, async (req, res) => {
   const { prompt } = req.body;
 
   if (typeof prompt !== "string" || prompt.trim() === "") {
