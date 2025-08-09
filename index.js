@@ -23,36 +23,23 @@ const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:3001',
   'https://interview-copilot-bice.vercel.app',
-  'https://interview-copilot-5cvjifvcd-anweshas-projects-24a008ff.vercel.app',
-  'https://interview-copilot-git-main-anweshas-projects-24a008ff.vercel.app',
-  'https://interview-copilot-cn21ivsu2-anweshas-projects-24a008ff.vercel.app'
+  'https://interview-copilot-5cvjifvcd-anweshas-projects-24a008ff.vercel.app'
 ];
 
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin) || origin === 'null') {
-      callback(null, true);
-    } else {
-      console.log('❌ Blocked by CORS:', origin);
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin:'*',//(origin, callback) => {
+  //   if (!origin || allowedOrigins.includes(origin) || origin === 'null') {
+  //     callback(null, true);
+  //   } else {
+  //     console.log('❌ Blocked by CORS:', origin);
+  //     callback(new Error('Not allowed by CORS'));
+  //   }
+  // },
   credentials: true,
 }));
 
 
 app.use(express.json());
-app.options('*', cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin) || origin === 'null') {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-}));
-
 
 // ✅ Mount routes
 app.use('/api/chat', chatRoutes);
@@ -78,6 +65,7 @@ app.get('/users', async (req, res) => {
 
 // ✅ Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Server is running on ${process.env.API_BASE_URL || `http://localhost:${PORT}`}`);
 });
+

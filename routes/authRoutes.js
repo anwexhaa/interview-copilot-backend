@@ -6,7 +6,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = require('../lib/prisma');
 const router = express.Router();
 
-router.post('/signup', verifyFirebaseToken, async (req, res) => {
+router.post('/', verifyFirebaseToken, async (req, res) => {
   console.log('🟢 /auth/signup route hit');
 
   const { email, name, id } = req.user;
