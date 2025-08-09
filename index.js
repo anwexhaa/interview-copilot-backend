@@ -66,6 +66,6 @@ app.get('/users', async (req, res) => {
 // ✅ Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Server is running on ${process.env.API_BASE_URL || `http://localhost:${PORT}`}`);
+  console.log(`🚀 Server is running on port ${PORT}`);
 });
 
